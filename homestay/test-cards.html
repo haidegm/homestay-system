@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>房源卡片测试</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 40px;
+      background: #f7f7f7;
+    }
+
+    .section {
+      background: white;
+      padding: 40px;
+      margin-bottom: 40px;
+      border-radius: 12px;
+    }
+
+    h2 {
+      margin-bottom: 24px;
+      color: #222;
+    }
+
+    /* 测试1: CityRecommend样式 */
+    .city-grid {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+    }
+
+    .city-card {
+      flex: 0 0 185px;
+    }
+
+    .city-img-wrap {
+      position: relative;
+      width: 185px;
+      height: 185px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+
+    .city-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 测试2: RecommendedHouses样式 */
+    .recommended-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .recommended-card {
+      width: 100%;
+    }
+
+    .recommended-img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f0f0f0;
+      margin-bottom: 12px;
+    }
+
+    .recommended-img img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 测试3: HouseDetail图片网格 */
+    .detail-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      height: 480px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .detail-main {
+      grid-row: span 2;
+    }
+
+    .detail-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .detail-side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 8px;
+      height: 100%;
+    }
+
+    .detail-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .info {
+      margin-top: 8px;
+    }
+
+    .title {
+      font-size: 14px;
+      color: #222;
+      margin-bottom: 4px;
+    }
+
+    .price {
+      font-size: 13px;
+      color: #717171;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="margin-bottom: 40px;">房源卡片大小测试</h1>
+
+  <!-- 测试1: CityRecommend -->
+  <div class="section">
+    <h2>1. CityRecommend（城市推荐）- 固定185x185</h2>
+    <div class="city-grid">
+      <div class="city-card">
+        <div class="city-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560184000-00e4f7c0c7e0?w=400&h=400&fit=crop" alt="房源1">
+        </div>
+        <div class="info">
+          <div class="title">杭州西湖边民宿</div>
+          <div class="price">¥200/晚</div>
+        </div>
+      </div>
+      <div class="city-card">
+        <div class="city-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560184001-00e4f7c0c7e1?w=400&h=400&fit=crop" alt="房源2">
+        </div>
+        <div class="info">
+          <div class="title">成都市中心公寓</div>
+          <div class="price">¥150/晚</div>
+        </div>
+      </div>
+      <div class="city-card">
+        <div class="city-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560184002-00e4f7c0c7e2?w=400&h=400&fit=crop" alt="房源3">
+        </div>
+        <div class="info">
+          <div class="title">北京四合院</div>
+          <div class="price">¥350/晚</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 测试2: RecommendedHouses -->
+  <div class="section">
+    <h2>2. RecommendedHouses（为你推荐）- aspect-ratio 1/1</h2>
+    <div class="recommended-grid">
+      <div class="recommended-card">
+        <div class="recommended-img">
+          <img src="https://images.unsplash.com/photo-1560184003-00e4f7c0c7e3?w=400&h=400&fit=crop" alt="推荐1">
+        </div>
+        <div class="info">
+          <div class="title">温馨小屋</div>
+          <div class="price">¥180/晚</div>
+        </div>
+      </div>
+      <div class="recommended-card">
+        <div class="recommended-img">
+          <img src="https://images.unsplash.com/photo-1560184004-00e4f7c0c7e4?w=400&h=400&fit=crop" alt="推荐2">
+        </div>
+        <div class="info">
+          <div class="title">豪华公寓</div>
+          <div class="price">¥280/晚</div>
+        </div>
+      </div>
+      <div class="recommended-card">
+        <div class="recommended-img">
+          <img src="https://images.unsplash.com/photo-1560184005-00e4f7c0c7e5?w=400&h=400&fit=crop" alt="推荐3">
+        </div>
+        <div class="info">
+          <div class="title">景观房</div>
+          <div class="price">¥220/晚</div>
+        </div>
+      </div>
+      <div class="recommended-card">
+        <div class="recommended-img">
+          <img src="https://images.unsplash.com/photo-1560184006-00e4f7c0c7e6?w=400&h=400&fit=crop" alt="推荐4">
+        </div>
+        <div class="info">
+          <div class="title">精品民宿</div>
+          <div class="price">¥250/晚</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 测试3: HouseDetail图片网格 -->
+  <div class="section">
+    <h2>3. HouseDetail（房源详情）- 1大图+4小图</h2>
+    <div class="detail-images">
+      <div class="detail-main">
+        <img src="https://images.unsplash.com/photo-1560184007-00e4f7c0c7e7?w=800&h=600&fit=crop" alt="主图">
+      </div>
+      <div class="detail-side">
+        <img src="https://images.unsplash.com/photo-1560184008-00e4f7c0c7e8?w=400&h=400&fit=crop" alt="小图1">
+        <img src="https://images.unsplash.com/photo-1560184009-00e4f7c0c7e9?w=400&h=400&fit=crop" alt="小图2">
+        <img src="https://images.unsplash.com/photo-1560184010-00e4f7c0c7ea?w=400&h=400&fit=crop" alt="小图3">
+        <img src="https://images.unsplash.com/photo-1560184011-00e4f7c0c7eb?w=400&h=400&fit=crop" alt="小图4">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ 检查清单</h2>
+    <ul style="line-height: 2;">
+      <li>CityRecommend: 所有卡片应该是185x185的正方形</li>
+      <li>RecommendedHouses: 所有卡片图片应该是正方形（1:1比例）</li>
+      <li>HouseDetail: 4张小图应该大小一致，填满容器</li>
+      <li>所有图片应该没有底部空隙</li>
+      <li>所有图片应该使用object-fit: cover裁剪</li>
+    </ul>
+  </div>
+</body>
+</html>

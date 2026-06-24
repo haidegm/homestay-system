@@ -1,0 +1,44 @@
+# 依赖与缓存目录（所有子目录自动生效）
+node_modules/
+__pycache__/
+venv/
+.venv/
+env/
+
+# 编译/构建产物
+dist/
+target/
+build/
+*.class
+*.jar
+*.pyc
+*.pyo
+
+# 模型、数据集、大体积文件
+*.pkl
+*.pth
+*.ckpt
+*.h5
+*.csv
+*.xlsx
+data/
+dataset/
+models/
+cache/
+
+# 日志与临时文件
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# IDE与工具配置
+.vscode/
+.idea/
+.claude/
+*.iml
+
+# 本地环境配置（避免泄露账号密码）
+.env.local
+application-dev.yml
+application-test.yml
