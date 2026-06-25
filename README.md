@@ -330,19 +330,33 @@ redis-cli ping
 - **推荐服务**: http://localhost:5000
 - **Redis 测试**: http://localhost:8080/api/redis/test/status
 
-### 默认账号
+### 测试账号
 
-#### 管理员账号
-- 用户名: `admin`
-- 密码: `admin123`
+系统没有预设默认账号，请按照以下步骤创建测试账号：
 
-#### 测试房东账号
-- 用户名: `host001`
-- 密码: `host123`
+#### 方式 1：通过注册页面
+1. 启动前端和后端服务
+2. 访问 http://localhost:5173
+3. 点击"注册"按钮
+4. 填写用户信息完成注册
+5. 注册时可选择角色：普通用户 / 房东
 
-#### 测试用户账号
-- 用户名: `user001`
-- 密码: `user123`
+#### 方式 2：直接在数据库插入
+```sql
+-- 插入管理员账号（密码需要加密）
+INSERT INTO users (username, password, email, role, created_at) 
+VALUES ('admin', 'encrypted_password', 'admin@example.com', 'ADMIN', NOW());
+
+-- 插入测试房东
+INSERT INTO users (username, password, email, role, created_at) 
+VALUES ('host01', 'encrypted_password', 'host@example.com', 'HOST', NOW());
+
+-- 插入测试用户
+INSERT INTO users (username, password, email, role, created_at) 
+VALUES ('user01', 'encrypted_password', 'user@example.com', 'USER', NOW());
+```
+
+> **注意**：密码需要使用 BCrypt 加密后存储，不能直接存储明文密码。
 
 ---
 
@@ -1071,20 +1085,7 @@ chmod +x start.sh
 
 ---
 
-## 📞 联系方式
 
-- **项目作者**：[你的名字]
-- **邮箱**：your-email@example.com
-- **GitHub**：https://github.com/your-username
-- **博客**：your-blog-url
-
----
-
-## 📄 许可证
-
-本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
-
----
 
 ## 🙏 致谢
 
@@ -1103,6 +1104,6 @@ chmod +x start.sh
 
 **如果这个项目对你有帮助，请给一个 ⭐ Star！**
 
-Made with ❤️ by [你的名字]
+Made with ❤️ by [haidegm]
 
 </div>
