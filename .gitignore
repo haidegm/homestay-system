@@ -42,3 +42,8 @@ Thumbs.db
 .env.local
 application-dev.yml
 application-test.yml
+
+# Office 临时缓存文件
+~$*
+*.tmp
+*.temp
